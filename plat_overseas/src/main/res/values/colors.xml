@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_transparent">#00000000</color>
+    <color name="login_choose_text_color">#000000</color>
+    <color name="text_color">#006284</color>
+    <color name="text_hint_color">#8aacbe</color>
+    <color name="login_way_text_gary_color">#969696</color>
+    <color name="login_way_text_color">#FFFFFF</color>
+    <color name="content_color">#666666</color>
+    <color name="login_button_background">#71c297</color>
+</resources>

@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+
+    lintOptions {//设置编译的lint开关，程序在buid的时候，会执行lint检查，有任何的错误或者警告提示，都会终止构建
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.facebook.android:facebook-android-sdk:4.+'
+    // Dependency for Google Sign-In
+    compile 'com.google.android.gms:play-services-auth:11.6.0'
+    testCompile 'junit:junit:4.12'
+}
+def timeStr = new Date().format('yyyyMMdd(HHmmss)')
+def version = '1.0.0'
+
+/**
+ * 获取SDK版本号
+ */
+def getSdkVersionName = { a ->
+    println '获取版本号'
+    String sdkVersion = '未知'
+    try {
+        file("src/main/java/com/overseas/exports/SdkManager.java").eachLine { lineText ->
+            def finder = (lineText =~ /.*(v)(\d+\.(\d+)(\.(\d+))?).*/)
+            if (finder.size() > 0) {
+                sdkVersion = "v${finder[0][2]}"
+                println sdkVersion
+            }
+        }
+    } catch (Exception e) {
+        println e.getMessage()
+        e.printStackTrace()
+    }
+    return sdkVersion
+}
+task buildJar(type: Jar, dependsOn: ['build']) {
+//导出的jar文件名称
+    version = getSdkVersionName()
+    archiveName = "d2eam_tw_sdk_${version}_${timeStr}.jar"
+//从哪个目录打包jar
+    from('build/intermediates/classes/debug')
+//导出的jar文件的存放目录（未指定则默认存放在build/libs下）
+    //destinationDir = file('D:/libs')
+//去掉不要的类
+    exclude('com/reginer/assetstest/BuildConfig.class')
+    exclude('com/reginer/assetstest/BuildConfig\$*.class')
+    exclude('**/R.class')
+    exclude('android')
+    exclude('com/facebook')
+    exclude('com/google')
+    exclude('com/overseas/exports/BuildConfig.class')
+}

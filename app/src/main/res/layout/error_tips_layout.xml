@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/login_bg_shape">
+
+    <RelativeLayout
+        android:id="@+id/rl_errorTips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/tv_errorTipsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:text="账号不存在或者密码输入错误。请重新输入，连续输入错误3次将冻结账号，账号将会冻结30分钟！！"
+            android:textColor="#434343"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rl_errorTips"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/icon" />
+
+    <Button
+        android:id="@+id/btn_closeTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/rl_errorTips"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/login_btn_shape"
+        android:text="确定" />
+</RelativeLayout>

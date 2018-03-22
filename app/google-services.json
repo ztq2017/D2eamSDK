@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "955776813638",
+    "project_id": "it-188709"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955776813638:android:feb305cad9872608",
+        "android_client_info": {
+          "package_name": "tw.i9453play.sdk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955776813638-s22dil19kkjt57r3m79pqjeu6cmqkjch.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tw.i9453play.sdk",
+            "certificate_hash": "d5886602398f3988ecaaab820c31d2a5ef7a25d1"
+          }
+        },
+        {
+          "client_id": "955776813638-t6nb1ccc739dj12du4aur1ses99p2k5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQQgj3t9c3NtupZQn1pgaQfRLcQc51rSI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
